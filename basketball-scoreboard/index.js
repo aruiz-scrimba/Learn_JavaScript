@@ -1,10 +1,10 @@
 let timerId;
 let timeRemaining;
-let isPaused = false;
+let isPaused = true;
 
-function setTime(timeInSeconds) {
-    const minutes = `${Math.floor(timeInSeconds / 60)}`.padStart(2, '0');
-    const seconds = `${timeInSeconds % 60}`.padStart(2, '0');
+function updateTimer() {
+    const minutes = `${Math.floor(timeRemaining / 60)}`.padStart(2, '0');
+    const seconds = `${timeRemaining % 60}`.padStart(2, '0');
     
     document.getElementById('timer').textContent = `${minutes}:${seconds}`
 }
@@ -57,10 +57,10 @@ function newGame() {
 
     document.getElementById('period').textContent = '1';
 
-    resetTimer();
+    reupdateTimerr();
 }
 
-function setTimerBorderColor(color) {
+function updateTimerrBorderColor(color) {
     document.getElementById('timer').style.border = `5px solid ${color}`;
 }
 
@@ -69,13 +69,13 @@ function startTimer() {
         timerId = setInterval(function () {
             if (timeRemaining >= 0) {
                 timeRemaining--;
-                setTime(timeRemaining);
+                updateTimer();
             } else {
-                setTimerBorderColor('red');    
+                updateTimerrBorderColor('red');    
             }
         }, 1000);    
         isPaused = false;
-        setTimerBorderColor('limegreen');    
+        updateTimerrBorderColor('limegreen');    
     }
 }
 
@@ -83,14 +83,14 @@ function pauseTimer() {
     if (timerId) {
         clearInterval(timerId);
         isPaused = true;
-        setTimerBorderColor('yellow');
+        updateTimerrBorderColor('yellow');
     }
 }
 
-function resetTimer() {
+function reupdateTimerr() {
     pauseTimer();
     timeRemaining = 12 * 60;
-    setTime(timeRemaining);
+    updateTimer();
 }
 
 function addPeriod() {
