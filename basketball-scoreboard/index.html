@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="game">
+                <div class="timer">
+                    <span id="timer">00:00</span>
+                    <div class="timer-controls">
+                        <button onclick="startTimer()">>></button>
+                        <button onclick="pauseTimer()">||</button>
+                    </div>
+                </div>
+                <h4 id="periodTitle">PERIOD</h4>
+                <div class="period">
+                    <span id="period">1</span>
+                    <button onclick="addPeriod()">+1</button>
+                </div>
+            </div>
+            <div class="teams">
+                <div class="team">
+                    <h3>HOME</h3>
+                    <span class="score" id="home-score">18</span>
+                    <div class="score-buttons">
+                        <span onclick="pointScored('home', 1)">+1</span>
+                        <span onclick="pointScored('home', 2)">+2</span>
+                        <span onclick="pointScored('home', 3)">+3</span>
+                    </div>
+                    <div class="fouls-outer">
+                        <h4>FOULS</h4>
+                        <div class="fouls">
+                            <span id="home-fouls">4</span>
+                            <button onclick=foulCommited('home')>+1</button>
+                        </div>
+                    </div>                   </div>
+                <div class="team">
+                    <h3>GUEST</h3>
+                    <span class="score" id="guest-score">10</span>
+                    <div class="score-buttons">
+                        <span onclick="pointScored('guest', 1)">+1</span>
+                        <span onclick="pointScored('guest', 2)">+2</span>
+                        <span onclick="pointScored('guest', 3)">+3</span>
+                    </div>
+                    <div class="fouls-outer">
+                        <h4>FOULS</h4>
+                        <div class="fouls">
+                            <span id="guest-fouls">4</span>
+                            <button onclick=foulCommited('guest')>+1</button>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+            <div class="footer">
+                <span onclick="newGame()">NEW GAME</span>
+            </div>
+        </div>
+
+        
+        <script src="index.js"></script>
+    </body>
+</html>
